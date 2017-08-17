@@ -6,9 +6,6 @@
 // Handles payment flow communication to Vend via the Payments API.
 // Documentation: https://docs.vendhq.com/docs/payments-api-reference
 
-// TODO add print decline and accept receipts
-// print step.
-
 // Permanent AJAX loaders.
 $(document)
   .ajaxStart(function () {
