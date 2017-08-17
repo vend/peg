@@ -6,25 +6,18 @@ Pay Example is a Heroku hosted web service that demonstrates how an in-store clo
 This project is intended as a guide for integrators, and includes Vendy styles and images that are free to be used.
 
 ## Contains
-- Go Webservice
+- Go Webservice (`main.go`)
 - Vend Payments API JavaScript (`assets/js/pay.js`)
-- Vend CSS Styles
-- Vend Payment Imagery
+- Vend CSS Styles (`assets/sass/app.scss`)
+- Vend Payment Imagery (`assets/images/*`)
 
 ## How to use
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
-Deploy the application to [Heroku](https://www.heroku.com/) so that you have access to the logs, or use the hosted image that can be found at:
-https://radiant-everglades-52692.herokuapp.com/
-
-To use it, you need to add a Credit Card payment type in Vend and specify the
-Heroku URL as the payment type gateway.
-
-![](https://i.imgur.com/LhGvnZ0.png)
-
-Then visit the Sell Screen, add products, click Pay, and choose "Payment Example (P.E.G)".
-This will launch a modal contaning the Heroku content, allowing you to simulate the
-payments API flows.
+1. Deploy the application to [Heroku](https://www.heroku.com/) so that you have full access to the logs. A current image that can be used, but is not likely to stick around, exists here: https://radiant-everglades-52692.herokuapp.com/
+2. Create a trial Vend account, and add a new Credit Card payment type, name it "Pay Example".
+3. Edit the Pay Example payment type, and enter the newly created Heroku URL as the payment type gateway address. ![](https://i.imgur.com/LhGvnZ0.png)
+4. Go to the Sell Screen on Web or iOS, add a product, click Pay, and choose "Payment Example". This will launch a modal contaning the Pay Example app, allowing you to simulate the payment API flows. 
 
 ![](https://i.imgur.com/mCjPDZ1.gif)
 
