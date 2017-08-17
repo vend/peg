@@ -12,6 +12,8 @@ This project is intended as a guide for integrators, and includes Vendy styles a
 - Vend Payment Imagery
 
 ## How to use
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
 The current [Heroku](https://www.heroku.com/) hosted image is found at:
 https://radiant-everglades-52692.herokuapp.com/
 
