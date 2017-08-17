@@ -1,0 +1,36 @@
+// Non styles
+@import "vend.ui/src/styles/global/non-styles";
+// Base styles
+@import 'vend.ui/src/styles/global/normalise';
+@import 'vend.ui/src/styles/global/icons';
+@import 'vend.ui/src/styles/global/text/font-faces';
+@import 'vend.ui/src/styles/global/text/text-helpers';
+@import 'vend.ui/src/styles/global/colour/colour-helpers';
+@import 'vend.ui/src/styles/global/placeholders';
+@import 'vend.ui/src/styles/global/effects/effects';
+//Components
+@import "vend.ui/src/components/vd-button/vd-button";
+@import "vend.ui/src/components/vd-loader/vd-loader";
+body,
+html {
+    height: 100%;
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.center {
+    justify-content: center;
+    align-items: center;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.insert-card {
+    margin-bottom: 40px;
+}

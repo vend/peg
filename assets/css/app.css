@@ -1,0 +1,342 @@
+/** PLEASE READ THIS COMMENT BEFORE MODIFYING!!! ============================================ This file defines the root dependencies for every stylesheet. This file should only include variables, mixins, functions, etc. BUT NO ACTUAL CLASS DECLARATIONS as it may be imported multiple times in the same page. For example, `font-faces` is not included here as it would create duplicated code if included multiple times. ============================================ */
+/** PLEASE READ THIS COMMENT BEFORE USING OR MODIFYING!!! ===================================================== These colours are the base Vend colours. They are suffixed by the `http://chir.ag/projects/name-that-color/` service and SHOULD NOT BE USED DIRECTLY by any scss component. Rather the semantic colour references should be used, which are defined in this files siblings. ===================================================== */
+body { font-synthesis: none; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; -moz-font-feature-settings: 'liga', 'kern'; font-family: lato, "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; font-size: 15px; line-height: normal; color: #3A4953; padding: 0; margin: 0; background-color: #F0F4F4; }
+
+a:link { text-decoration: none; }
+
+@font-face { font-family: "vend-icons"; src: url("../../fonts/vend-icons.eot"); src: url("../../fonts/vend-icons.eot?#iefix") format("eot"), url("../../fonts/vend-icons.woff") format("woff"), url("../../fonts/vend-icons.ttf") format("truetype"); font-weight: normal; font-style: normal; }
+
+.vd-i { display: inline-block; font-family: "vend-icons"; speak: none; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+.vd-i-assignment:before { content: "\EA01"; }
+
+.vd-i-back-arrow:before { content: "\EA02"; }
+
+.vd-i-circle-check:before { content: "\EA03"; }
+
+.vd-i-coins:before { content: "\EA04"; }
+
+.vd-i-collections:before { content: "\EA05"; }
+
+.vd-i-customers:before { content: "\EA06"; }
+
+.vd-i-design:before { content: "\EA07"; }
+
+.vd-i-outlet:before { content: "\EA08"; }
+
+.vd-i-park:before { content: "\EA09"; }
+
+.vd-i-products:before { content: "\EA0A"; }
+
+.vd-i-receipt:before { content: "\EA0B"; }
+
+.vd-i-sale-history:before { content: "\EA0C"; }
+
+.vd-i-sign-out:before { content: "\EA0D"; }
+
+.vd-i-store-link:before { content: "\EA0E"; }
+
+.vd-i-tags:before { content: "\EA0F"; }
+
+.vd-i-times:before { content: "\EA10"; }
+
+.vd-i-uneditable:before { content: "\EA11"; }
+
+.vd-i-variant:before { content: "\EA12"; }
+
+.vd-i-vend-logo:before { content: "\EA13"; }
+
+.vd-i-vend-tag-logo:before { content: "\EA14"; }
+
+.vd-i-vend-u:before { content: "\EA15"; }
+
+.vd-i-walk:before { content: "\EA16"; }
+
+.vd-i-wifi-out:before { content: "\EA17"; }
+
+.vd-i-sell:before { content: "\EA18"; }
+
+.vd-i-training:before { content: "\EA19"; }
+
+.vd-i-history:before { content: "\EA1A"; }
+
+.vd-i-setup:before { content: "\EA1B"; }
+
+.vd-i-phone-support:before { content: "\EA1C"; }
+
+.vd-i-verified-badge:before { content: "\EA1D"; }
+
+@font-face { font-family: 'lato'; src: url("../../fonts/lato-hairline.ttf") format("truetype"); font-weight: 100; font-style: normal; font-display: swap; }
+
+@font-face { font-family: 'lato'; src: url("../../fonts/lato-light.ttf") format("truetype"); font-weight: 300; font-style: normal; font-display: swap; }
+
+@font-face { font-family: 'lato'; src: url("../../fonts/lato-regular.ttf") format("truetype"); font-weight: 400; font-style: normal; font-display: swap; }
+
+@font-face { font-family: 'lato'; src: url("../../fonts/lato-bold.ttf") format("truetype"); font-weight: 700; font-style: normal; font-display: swap; }
+
+@font-face { font-family: 'lato'; src: url("../../fonts/lato-black.ttf") format("truetype"); font-weight: 900; font-style: normal; font-display: swap; }
+
+.vd-text-grand { font-synthesis: none; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; -moz-font-feature-settings: 'liga', 'kern'; word-break: break-word; margin: 0; font-size: 48px; line-height: 1.16667; font-weight: 700; }
+
+.vd-text-hero { font-synthesis: none; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; -moz-font-feature-settings: 'liga', 'kern'; word-break: break-word; margin: 0; font-size: 32px; line-height: 1.5; font-weight: 700; }
+
+.vd-text-heading { font-synthesis: none; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; -moz-font-feature-settings: 'liga', 'kern'; word-break: break-word; margin: 0; font-size: 24px; line-height: 1.33333; font-weight: 700; }
+
+.vd-text-sub-heading { font-synthesis: none; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; -moz-font-feature-settings: 'liga', 'kern'; word-break: break-word; margin: 0; font-size: 18px; line-height: 1.33333; font-weight: 700; }
+
+.vd-text-intro { font-synthesis: none; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; -moz-font-feature-settings: 'liga', 'kern'; word-break: break-word; margin: 0; font-size: 18px; line-height: 1.33333; font-weight: 400; }
+
+.vd-text-signpost { font-synthesis: none; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; -moz-font-feature-settings: 'liga', 'kern'; word-break: break-word; margin: 0; font-size: 15px; line-height: 1.33333; font-weight: 900; letter-spacing: 0.15em; text-transform: uppercase; }
+
+.vd-text-label { font-synthesis: none; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; -moz-font-feature-settings: 'liga', 'kern'; word-break: break-word; margin: 0; font-size: 15px; line-height: 1.33333; font-weight: 700; }
+
+.vd-text-body { font-synthesis: none; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; -moz-font-feature-settings: 'liga', 'kern'; word-break: break-word; margin: 0; font-size: 15px; line-height: 1.33333; font-weight: 400; }
+
+.vd-text-supplementary { font-synthesis: none; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; -moz-font-feature-settings: 'liga', 'kern'; word-break: break-word; margin: 0; font-size: 12px; line-height: 1.25; font-weight: 400; }
+
+.vd-text-mini-signpost { font-synthesis: none; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; -moz-font-feature-settings: 'liga', 'kern'; word-break: break-word; margin: 0; font-size: 10px; line-height: 1.2; font-weight: 900; text-transform: uppercase; }
+
+.vd-text-mini-copy { font-synthesis: none; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; -moz-font-feature-settings: 'liga', 'kern'; word-break: break-word; margin: 0; font-size: 10px; line-height: 1.2; font-weight: 400; }
+
+.vd-text-truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.vd-no-wrap { white-space: nowrap; }
+
+.vd-colour-do { color: #41AF4B; }
+
+.vd-colour-go { color: #008AE8; }
+
+.vd-colour-no { color: #E6643C; }
+
+@keyframes vd-rotate { 100% { transform: rotate(360deg); } }
+
+@keyframes vd-fade-in { 0% { opacity: 0; }
+  100% { opacity: 1; } }
+
+@keyframes vd-flash { 0% { opacity: 0; }
+  30%, 70% { opacity: 1; }
+  100% { opacity: 0; } }
+
+.vd-fade-out { animation-duration: 1.5s; animation-name: vd-flash; animation-fill-mode: forwards; }
+
+.vd-button-group { margin: -4px; }
+
+.vd-button-group.vd-button-group--nowrap { white-space: nowrap; }
+
+.vd-button { font-synthesis: none; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; -moz-font-feature-settings: 'liga', 'kern'; position: relative; font-family: lato, "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; cursor: pointer; font-size: 15px; border-radius: 3px; padding: 12px 20px; text-align: center; box-sizing: border-box; display: inline-block; margin: 0 4px; border: 1px solid transparent; font-weight: 700; transition: all 0.2s; transition-property: background, color, border; outline: none; }
+
+.vd-button:first-child { margin-left: 0; }
+
+.vd-button:last-child { margin-right: 0; }
+
+.vd-button-group .vd-button { margin: 4px; }
+
+.vd-button.vd-button--big { font-synthesis: none; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; -moz-font-feature-settings: 'liga', 'kern'; line-height: 1.22222; font-size: 18px; padding: 16px 32px; }
+
+.vd-button.vd-button--inline { background: transparent; color: inherit; padding: 0; display: inline; text-decoration: underline; border: 0; }
+
+.vd-button.vd-button--inline:not(:disabled):hover { color: #008AE8; }
+
+.vd-button.vd-button--panel { display: flex; flex-direction: column; justify-content: center; align-items: center; height: 120px; width: 100%; background-color: #FFFFFF; padding: 12px 20px; border: 1px solid #E5EAED; color: #3A4953; }
+
+.vd-button.vd-button--panel:focus { border-color: #008AE8; box-shadow: 0 0 3px #008AE8; }
+
+.vd-button.vd-button--panel:hover { border-color: #089bff; background-color: white; box-shadow: 0 0 3px 2px rgba(0, 138, 232, 0.35); border-color: #008AE8; }
+
+.vd-button.vd-button--panel:active { border-color: #0081d9; background-color: #f7f7f7; }
+
+.vd-button.vd-button--panel.vd-button--primary { background-color: #FFFFFF; border-color: #41AF4B; color: #41AF4B; }
+
+.vd-button.vd-button--panel.vd-button--primary:focus { border-color: #41AF4B; box-shadow: 0 0 3px #41AF4B; }
+
+.vd-button.vd-button--panel.vd-button--primary:hover { border-color: #50be5a; background-color: white; box-shadow: 0 0 3px 2px rgba(65, 175, 75, 0.35); border-color: #41AF4B; }
+
+.vd-button.vd-button--panel.vd-button--primary:active { border-color: #3da446; background-color: #f7f7f7; }
+
+.vd-button.vd-button--panel.vd-button--secondary { background-color: #FFFFFF; border-color: #6692B0; color: #6692B0; }
+
+.vd-button.vd-button--panel.vd-button--secondary:focus { border-color: #6692B0; box-shadow: 0 0 3px #6692B0; }
+
+.vd-button.vd-button--panel.vd-button--secondary:hover { border-color: #7aa0ba; background-color: white; box-shadow: 0 0 3px 2px rgba(102, 146, 176, 0.35); border-color: #6692B0; }
+
+.vd-button.vd-button--panel.vd-button--secondary:active { border-color: #5c8bab; background-color: #f7f7f7; }
+
+.vd-button.vd-button--panel.vd-button--negative { background-color: #FFFFFF; border-color: #E6643C; color: #E6643C; }
+
+.vd-button.vd-button--panel.vd-button--negative:focus { border-color: #E6643C; box-shadow: 0 0 3px #E6643C; }
+
+.vd-button.vd-button--panel.vd-button--negative:hover { border-color: #e97a57; background-color: white; box-shadow: 0 0 3px 2px rgba(230, 100, 60, 0.35); border-color: #E6643C; }
+
+.vd-button.vd-button--panel.vd-button--negative:active { border-color: #e4592e; background-color: #f7f7f7; }
+
+.vd-button.vd-button--primary { background-color: #41AF4B; color: #FFFFFF; }
+
+.vd-button.vd-button--primary:focus { box-shadow: 0 0 0px 2px rgba(255, 255, 255, 0.8), 0 0 3px 3px rgba(65, 175, 75, 0.35), 0 0 0px 3px rgba(65, 175, 75, 0.6); border: 1px solid #41AF4B; }
+
+.vd-button.vd-button--primary:disabled, .vd-button.vd-button--primary.disabled, .vd-button.vd-button--primary:disabled:hover, .vd-button.vd-button--primary[disabled] { cursor: default; pointer-events: none; background-color: #E5EAED; border: 1px solid #E5EAED; color: #3A4953; opacity: 0.35; }
+
+.vd-button.vd-button--primary:hover { background-color: #50be5a; }
+
+.vd-button.vd-button--primary:active { background-color: #3da446; box-shadow: 0 0 3px 2px rgba(65, 175, 75, 0.35); border-color: #41AF4B; }
+
+.vd-button.vd-button--primary:not(.vd-button--icon) { min-width: 100px; }
+
+.vd-button.vd-button--primary.vd-button--text { background: transparent; border: 1px solid transparent; color: #41AF4B; }
+
+.vd-button.vd-button--primary.vd-button--text:focus { box-shadow: 0 0 3px 2px rgba(65, 175, 75, 0.35); }
+
+.vd-button.vd-button--primary.vd-button--text.vd-button--table { padding: 0; font-size: 18px; color: #BECBCF; }
+
+.vd-button.vd-button--primary.vd-button--text.vd-button--table:disabled, .vd-button.vd-button--primary.vd-button--text.vd-button--table.disabled, .vd-button.vd-button--primary.vd-button--text.vd-button--table:disabled:hover, .vd-button.vd-button--primary.vd-button--text.vd-button--table[disabled] { cursor: default; pointer-events: none; color: #BECBCF; }
+
+.vd-button.vd-button--primary.vd-button--text:disabled, .vd-button.vd-button--primary.vd-button--text.disabled, .vd-button.vd-button--primary.vd-button--text:disabled:hover, .vd-button.vd-button--primary.vd-button--text[disabled] { cursor: default; pointer-events: none; color: #BECBCF; }
+
+.vd-button.vd-button--primary.vd-button--text:not(:disabled):hover, .vd-button.vd-button--primary.vd-button--text:not(:disabled):active { border-color: #41AF4B; background-color: #41AF4B; color: #FFFFFF; }
+
+.vd-button.vd-button--primary.vd-button--text:not(:disabled):hover.vd-button--subtle, .vd-button.vd-button--primary.vd-button--text:not(:disabled):active.vd-button--subtle { border-color: #E5EAED; background-color: transparent; color: #41AF4B; }
+
+.vd-button.vd-button--primary.vd-button--text:not(:disabled):hover.vd-button--table, .vd-button.vd-button--primary.vd-button--text:not(:disabled):active.vd-button--table { border-color: transparent; background-color: transparent; color: #41AF4B; }
+
+.vd-button.vd-button--primary.vd-button--icon { background: transparent; border: 1px solid transparent; padding: 12px 14px; color: #3A4953; }
+
+.vd-button.vd-button--primary.vd-button--icon:focus { box-shadow: 0 0 3px 2px rgba(65, 175, 75, 0.35); }
+
+.vd-button.vd-button--primary.vd-button--icon.vd-button--table { padding: 0; font-size: 18px; color: #BECBCF; }
+
+.vd-button.vd-button--primary.vd-button--icon.vd-button--table:disabled, .vd-button.vd-button--primary.vd-button--icon.vd-button--table.disabled, .vd-button.vd-button--primary.vd-button--icon.vd-button--table:disabled:hover, .vd-button.vd-button--primary.vd-button--icon.vd-button--table[disabled] { cursor: default; pointer-events: none; color: #BECBCF; }
+
+.vd-button.vd-button--primary.vd-button--icon:disabled, .vd-button.vd-button--primary.vd-button--icon.disabled, .vd-button.vd-button--primary.vd-button--icon:disabled:hover, .vd-button.vd-button--primary.vd-button--icon[disabled] { cursor: default; pointer-events: none; color: #BECBCF; }
+
+.vd-button.vd-button--primary.vd-button--icon:not(:disabled):hover, .vd-button.vd-button--primary.vd-button--icon:not(:disabled):active { border-color: #41AF4B; background-color: #41AF4B; color: #FFFFFF; }
+
+.vd-button.vd-button--primary.vd-button--icon:not(:disabled):hover.vd-button--subtle, .vd-button.vd-button--primary.vd-button--icon:not(:disabled):active.vd-button--subtle { border-color: #E5EAED; background-color: transparent; color: #41AF4B; }
+
+.vd-button.vd-button--primary.vd-button--icon:not(:disabled):hover.vd-button--table, .vd-button.vd-button--primary.vd-button--icon:not(:disabled):active.vd-button--table { border-color: transparent; background-color: transparent; color: #41AF4B; }
+
+.vd-button.vd-button--primary.vd-button--icon.vd-button--big { padding: 16px 20px; }
+
+.vd-button.vd-button--secondary { background-color: #6692B0; color: #FFFFFF; }
+
+.vd-button.vd-button--secondary:focus { box-shadow: 0 0 0px 2px rgba(255, 255, 255, 0.8), 0 0 3px 3px rgba(102, 146, 176, 0.35), 0 0 0px 3px rgba(102, 146, 176, 0.6); border: 1px solid #6692B0; }
+
+.vd-button.vd-button--secondary:disabled, .vd-button.vd-button--secondary.disabled, .vd-button.vd-button--secondary:disabled:hover, .vd-button.vd-button--secondary[disabled] { cursor: default; pointer-events: none; background-color: #E5EAED; border: 1px solid #E5EAED; color: #3A4953; opacity: 0.35; }
+
+.vd-button.vd-button--secondary:hover { background-color: #7aa0ba; }
+
+.vd-button.vd-button--secondary:active { background-color: #5c8bab; box-shadow: 0 0 3px 2px rgba(102, 146, 176, 0.35); border-color: #6692B0; }
+
+.vd-button.vd-button--secondary:not(.vd-button--icon) { min-width: 100px; }
+
+.vd-button.vd-button--secondary.vd-button--text { background: transparent; border: 1px solid transparent; color: #6692B0; }
+
+.vd-button.vd-button--secondary.vd-button--text:focus { box-shadow: 0 0 3px 2px rgba(102, 146, 176, 0.35); }
+
+.vd-button.vd-button--secondary.vd-button--text.vd-button--table { padding: 0; font-size: 18px; color: #BECBCF; }
+
+.vd-button.vd-button--secondary.vd-button--text.vd-button--table:disabled, .vd-button.vd-button--secondary.vd-button--text.vd-button--table.disabled, .vd-button.vd-button--secondary.vd-button--text.vd-button--table:disabled:hover, .vd-button.vd-button--secondary.vd-button--text.vd-button--table[disabled] { cursor: default; pointer-events: none; color: #BECBCF; }
+
+.vd-button.vd-button--secondary.vd-button--text:disabled, .vd-button.vd-button--secondary.vd-button--text.disabled, .vd-button.vd-button--secondary.vd-button--text:disabled:hover, .vd-button.vd-button--secondary.vd-button--text[disabled] { cursor: default; pointer-events: none; color: #BECBCF; }
+
+.vd-button.vd-button--secondary.vd-button--text:not(:disabled):hover, .vd-button.vd-button--secondary.vd-button--text:not(:disabled):active { border-color: #6692B0; background-color: #6692B0; color: #FFFFFF; }
+
+.vd-button.vd-button--secondary.vd-button--text:not(:disabled):hover.vd-button--subtle, .vd-button.vd-button--secondary.vd-button--text:not(:disabled):active.vd-button--subtle { border-color: #E5EAED; background-color: transparent; color: #6692B0; }
+
+.vd-button.vd-button--secondary.vd-button--text:not(:disabled):hover.vd-button--table, .vd-button.vd-button--secondary.vd-button--text:not(:disabled):active.vd-button--table { border-color: transparent; background-color: transparent; color: #6692B0; }
+
+.vd-button.vd-button--secondary.vd-button--icon { background: transparent; border: 1px solid transparent; padding: 12px 14px; color: #3A4953; }
+
+.vd-button.vd-button--secondary.vd-button--icon:focus { box-shadow: 0 0 3px 2px rgba(102, 146, 176, 0.35); }
+
+.vd-button.vd-button--secondary.vd-button--icon.vd-button--table { padding: 0; font-size: 18px; color: #BECBCF; }
+
+.vd-button.vd-button--secondary.vd-button--icon.vd-button--table:disabled, .vd-button.vd-button--secondary.vd-button--icon.vd-button--table.disabled, .vd-button.vd-button--secondary.vd-button--icon.vd-button--table:disabled:hover, .vd-button.vd-button--secondary.vd-button--icon.vd-button--table[disabled] { cursor: default; pointer-events: none; color: #BECBCF; }
+
+.vd-button.vd-button--secondary.vd-button--icon:disabled, .vd-button.vd-button--secondary.vd-button--icon.disabled, .vd-button.vd-button--secondary.vd-button--icon:disabled:hover, .vd-button.vd-button--secondary.vd-button--icon[disabled] { cursor: default; pointer-events: none; color: #BECBCF; }
+
+.vd-button.vd-button--secondary.vd-button--icon:not(:disabled):hover, .vd-button.vd-button--secondary.vd-button--icon:not(:disabled):active { border-color: #6692B0; background-color: #6692B0; color: #FFFFFF; }
+
+.vd-button.vd-button--secondary.vd-button--icon:not(:disabled):hover.vd-button--subtle, .vd-button.vd-button--secondary.vd-button--icon:not(:disabled):active.vd-button--subtle { border-color: #E5EAED; background-color: transparent; color: #6692B0; }
+
+.vd-button.vd-button--secondary.vd-button--icon:not(:disabled):hover.vd-button--table, .vd-button.vd-button--secondary.vd-button--icon:not(:disabled):active.vd-button--table { border-color: transparent; background-color: transparent; color: #6692B0; }
+
+.vd-button.vd-button--secondary.vd-button--icon.vd-button--big { padding: 16px 20px; }
+
+.vd-button.vd-button--negative { background-color: #E6643C; color: #FFFFFF; }
+
+.vd-button.vd-button--negative:focus { box-shadow: 0 0 0px 2px rgba(255, 255, 255, 0.8), 0 0 3px 3px rgba(230, 100, 60, 0.35), 0 0 0px 3px rgba(230, 100, 60, 0.6); border: 1px solid #E6643C; }
+
+.vd-button.vd-button--negative:disabled, .vd-button.vd-button--negative.disabled, .vd-button.vd-button--negative:disabled:hover, .vd-button.vd-button--negative[disabled] { cursor: default; pointer-events: none; background-color: #E5EAED; border: 1px solid #E5EAED; color: #3A4953; opacity: 0.35; }
+
+.vd-button.vd-button--negative:hover { background-color: #e97a57; }
+
+.vd-button.vd-button--negative:active { background-color: #e4592e; box-shadow: 0 0 3px 2px rgba(230, 100, 60, 0.35); border-color: #E6643C; }
+
+.vd-button.vd-button--negative:not(.vd-button--icon) { min-width: 100px; }
+
+.vd-button.vd-button--negative.vd-button--text { background: transparent; border: 1px solid transparent; color: #E6643C; }
+
+.vd-button.vd-button--negative.vd-button--text:focus { box-shadow: 0 0 3px 2px rgba(230, 100, 60, 0.35); }
+
+.vd-button.vd-button--negative.vd-button--text.vd-button--table { padding: 0; font-size: 18px; color: #BECBCF; }
+
+.vd-button.vd-button--negative.vd-button--text.vd-button--table:disabled, .vd-button.vd-button--negative.vd-button--text.vd-button--table.disabled, .vd-button.vd-button--negative.vd-button--text.vd-button--table:disabled:hover, .vd-button.vd-button--negative.vd-button--text.vd-button--table[disabled] { cursor: default; pointer-events: none; color: #BECBCF; }
+
+.vd-button.vd-button--negative.vd-button--text:disabled, .vd-button.vd-button--negative.vd-button--text.disabled, .vd-button.vd-button--negative.vd-button--text:disabled:hover, .vd-button.vd-button--negative.vd-button--text[disabled] { cursor: default; pointer-events: none; color: #BECBCF; }
+
+.vd-button.vd-button--negative.vd-button--text:not(:disabled):hover, .vd-button.vd-button--negative.vd-button--text:not(:disabled):active { border-color: #E6643C; background-color: #E6643C; color: #FFFFFF; }
+
+.vd-button.vd-button--negative.vd-button--text:not(:disabled):hover.vd-button--subtle, .vd-button.vd-button--negative.vd-button--text:not(:disabled):active.vd-button--subtle { border-color: #E5EAED; background-color: transparent; color: #E6643C; }
+
+.vd-button.vd-button--negative.vd-button--text:not(:disabled):hover.vd-button--table, .vd-button.vd-button--negative.vd-button--text:not(:disabled):active.vd-button--table { border-color: transparent; background-color: transparent; color: #E6643C; }
+
+.vd-button.vd-button--negative.vd-button--icon { background: transparent; border: 1px solid transparent; padding: 12px 14px; color: #3A4953; }
+
+.vd-button.vd-button--negative.vd-button--icon:focus { box-shadow: 0 0 3px 2px rgba(230, 100, 60, 0.35); }
+
+.vd-button.vd-button--negative.vd-button--icon.vd-button--table { padding: 0; font-size: 18px; color: #BECBCF; }
+
+.vd-button.vd-button--negative.vd-button--icon.vd-button--table:disabled, .vd-button.vd-button--negative.vd-button--icon.vd-button--table.disabled, .vd-button.vd-button--negative.vd-button--icon.vd-button--table:disabled:hover, .vd-button.vd-button--negative.vd-button--icon.vd-button--table[disabled] { cursor: default; pointer-events: none; color: #BECBCF; }
+
+.vd-button.vd-button--negative.vd-button--icon:disabled, .vd-button.vd-button--negative.vd-button--icon.disabled, .vd-button.vd-button--negative.vd-button--icon:disabled:hover, .vd-button.vd-button--negative.vd-button--icon[disabled] { cursor: default; pointer-events: none; color: #BECBCF; }
+
+.vd-button.vd-button--negative.vd-button--icon:not(:disabled):hover, .vd-button.vd-button--negative.vd-button--icon:not(:disabled):active { border-color: #E6643C; background-color: #E6643C; color: #FFFFFF; }
+
+.vd-button.vd-button--negative.vd-button--icon:not(:disabled):hover.vd-button--subtle, .vd-button.vd-button--negative.vd-button--icon:not(:disabled):active.vd-button--subtle { border-color: #E5EAED; background-color: transparent; color: #E6643C; }
+
+.vd-button.vd-button--negative.vd-button--icon:not(:disabled):hover.vd-button--table, .vd-button.vd-button--negative.vd-button--icon:not(:disabled):active.vd-button--table { border-color: transparent; background-color: transparent; color: #E6643C; }
+
+.vd-button.vd-button--negative.vd-button--icon.vd-button--big { padding: 16px 20px; }
+
+.vd-button.vd-button--primary.vd-button--compact, .vd-button.vd-button--secondary.vd-button--compact, .vd-button.vd-button--negative.vd-button--compact { min-width: 0px; }
+
+.vd-button.vd-button--ghost { background: transparent; border-color: #FFFFFF; color: #FFFFFF; }
+
+.vd-button.vd-button--ghost:disabled, .vd-button.vd-button--ghost.disabled, .vd-button.vd-button--ghost:disabled:hover, .vd-button.vd-button--ghost[disabled] { cursor: default; pointer-events: none; border-color: rgba(255, 255, 255, 0.5); background-color: transparent; color: rgba(255, 255, 255, 0.7); opacity: 1; }
+
+.vd-button.vd-button--ghost:hover { background-color: rgba(255, 255, 255, 0.1); }
+
+.vd-button.vd-button--ghost:focus { border-color: #FFFFFF; box-shadow: 0 0 4px 3px rgba(255, 255, 255, 0.4); }
+
+.vd-button.vd-button--ghost:active { background-color: rgba(255, 255, 255, 0.2); box-shadow: 0 0 3px 2px rgba(255, 255, 255, 0.35); }
+
+.vd-loader { display: inline-block; align-self: center; width: 20px; height: 20px; border-radius: 50%; border: 2px solid #41AF4B; border-left-color: transparent; animation: vd-rotate 1s ease-in-out infinite; }
+
+.vd-loader.vd-loader--small { width: 16px; height: 16px; }
+
+.vd-button .vd-loader--small { margin: -3px 0 -3px 6px; vertical-align: middle; }
+
+.vd-loader--input { position: absolute; top: 50%; right: 8px; z-index: 0; margin-top: -12px; }
+
+.vd-loader--input.vd-loader--small { margin-top: -10px; }
+
+.vd-i-bg { position: absolute; top: 50%; right: 8px; margin: auto; transform: translate(0, -50%); z-index: 0; }
+
+body, html { height: 100%; }
+
+.container { height: 100%; display: flex; flex-direction: column; }
+
+.center { justify-content: center; align-items: center; }
+
+.center-text { text-align: center; }
+
+.insert-card { margin-bottom: 40px; }
