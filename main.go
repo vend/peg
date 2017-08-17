@@ -60,6 +60,7 @@ func PaymentHandler(w http.ResponseWriter, r *http.Request) {
 	// "register_id" is the ID of the Vend register that sent the transaction.
 	// "outcome" is the desired outcome of the payment flow. IMPORTANT: this is
 	// only applies to this package and is not sent in production.
+	r.ParseForm()
 	amount := r.Form.Get("amount")
 	outcome := r.Form.Get("outcome")
 	origin := r.Form.Get("origin")
