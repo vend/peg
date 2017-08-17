@@ -3,7 +3,6 @@ package main
 
 import (
 	"encoding/json"
-	"html/template"
 	"log"
 	"net/http"
 	"os"
@@ -38,15 +37,7 @@ func main() {
 
 // Index displays the main payment processing page.
 func Index(w http.ResponseWriter, r *http.Request) {
-	template, err := template.ParseFiles("./assets/templates/index.html")
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	err = template.Execute(w, nil)
-	if err != nil {
-		log.Fatal(err)
-	}
+	http.ServeFile(w, r, "./assets/templates/index.html")
 }
 
 // PaymentHandler receives the payment request from Vend and sends it to the
