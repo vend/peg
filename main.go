@@ -52,31 +52,20 @@ func Index(w http.ResponseWriter, r *http.Request) {
 // PaymentHandler receives the payment request from Vend and sends it to the
 // payment gateway.
 func PaymentHandler(w http.ResponseWriter, r *http.Request) {
-	var amount, outcome, origin, registerID string
-	r.ParseForm()
-	for key, param := range r.Form {
-		// Ignore empty parameters.
-		if len(param[0]) == 0 {
-			continue
-		}
+	// Vend sends multiple arguments for use by the gateway.
+	// "amount" is the subtotal of the sale including tax.
+	// "origin" is the Vend store URL that the transaction came from.
+	//
+	// optional:
+	// "register_id" is the ID of the Vend register that sent the transaction.
+	// "outcome" is the desired outcome of the payment flow. IMPORTANT: this is
+	// only applies to this package and is not sent in production.
+	amount := r.Form.Get("amount")
+	outcome := r.Form.Get("outcome")
+	origin := r.Form.Get("origin")
+	registerID := r.Form.Get("register_id")
 
-		// Vend sends three arguments for use by the gateway.
-		// amount is the subtotal of the sale including tax.
-		// origin is the Vend store URL that the transaction came from.
-		// register_id is the Vend register that processed the transaction.
-		switch key {
-		case "amount":
-			amount = param[0]
-		case "outcome":
-			outcome = param[0]
-		case "origin":
-			origin = param[0]
-		case "register_id":
-			registerID = param[0]
-		}
-	}
-
-	// Reject requests with empty arguments.
+	// Reject requests with required arguments that are empty.
 	if amount == "" || origin == "" {
 		log.Printf("received empty param value. required: amount %s origin %s optional: register_id %s outcome %s", amount, origin, registerID, outcome)
 		w.WriteHeader(http.StatusBadRequest)
@@ -92,7 +81,7 @@ func PaymentHandler(w http.ResponseWriter, r *http.Request) {
 	amountFloat, err := strconv.ParseFloat(amount, 64)
 	if err != nil {
 		log.Println("failed to convert amount string to float: ", err)
-		w.WriteHeader(http.StatusInternalServerError)
+		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
 
