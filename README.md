@@ -14,7 +14,7 @@ This project is intended as a guide for integrators, and includes Vendy styles a
 ## How to use
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
-The current [Heroku](https://www.heroku.com/) hosted image is found at:
+Deploy the application to [Heroku](https://www.heroku.com/) so that you have access to the logs, or use the hosted image that can be found at:
 https://radiant-everglades-52692.herokuapp.com/
 
 To use it, you need to add a Credit Card payment type in Vend and specify the
