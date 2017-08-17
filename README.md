@@ -13,7 +13,7 @@ This project is intended as a guide for integrators, and includes Vendy styles a
 
 ## How to use
 The current [Heroku](https://www.heroku.com/) hosted image is found at:
-https://cryptic-dusk-38987.herokuapp.com/
+https://radiant-everglades-52692.herokuapp.com/
 
 To use it, you need to add a Credit Card payment type in Vend and specify the
 Heroku URL as the payment type gateway.
