@@ -1,3 +1,4 @@
+$vd-font-src: '../fonts/';
 // Non styles
 @import "vend.ui/src/styles/global/non-styles";
 // Base styles
@@ -8,7 +9,7 @@
 @import 'vend.ui/src/styles/global/colour/colour-helpers';
 @import 'vend.ui/src/styles/global/placeholders';
 @import 'vend.ui/src/styles/global/effects/effects';
-//Components
+// Components
 @import "vend.ui/src/components/vd-button/vd-button";
 @import "vend.ui/src/components/vd-loader/vd-loader";
 body,

@@ -1,8 +1,10 @@
+/** PLEASE READ THIS COMMENT BEFORE MODIFYING!!! ============================================ This file defines the root dependencies for every stylesheet. This file should only include variables, mixins, functions, etc. BUT NO ACTUAL CLASS DECLARATIONS as it may be imported multiple times in the same page. For example, `font-faces` is not included here as it would create duplicated code if included multiple times. ============================================ */
+/** PLEASE READ THIS COMMENT BEFORE USING OR MODIFYING!!! ===================================================== These colours are the base Vend colours. They are suffixed by the `http://chir.ag/projects/name-that-color/` service and SHOULD NOT BE USED DIRECTLY by any scss component. Rather the semantic colour references should be used, which are defined in this files siblings. ===================================================== */
 body { font-synthesis: none; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; -moz-font-feature-settings: 'liga', 'kern'; font-family: lato, "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; font-size: 15px; line-height: normal; color: #3A4953; padding: 0; margin: 0; background-color: #F0F4F4; }
 
 a:link { text-decoration: none; }
 
-@font-face { font-family: "vend-icons"; src: url("../../fonts/vend-icons.eot"); src: url("../../fonts/vend-icons.eot?#iefix") format("eot"), url("../../fonts/vend-icons.woff") format("woff"), url("../../fonts/vend-icons.ttf") format("truetype"); font-weight: normal; font-style: normal; }
+@font-face { font-family: "vend-icons"; src: url("../fonts/vend-icons.eot"); src: url("../fonts/vend-icons.eot?#iefix") format("eot"), url("../fonts/vend-icons.woff") format("woff"), url("../fonts/vend-icons.ttf") format("truetype"); font-weight: normal; font-style: normal; }
 
 .vd-i { display: inline-block; font-family: "vend-icons"; speak: none; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
@@ -64,15 +66,15 @@ a:link { text-decoration: none; }
 
 .vd-i-verified-badge:before { content: "\EA1D"; }
 
-@font-face { font-family: 'lato'; src: url("../../fonts/lato-hairline.ttf") format("truetype"); font-weight: 100; font-style: normal; font-display: swap; }
+@font-face { font-family: 'lato'; src: url("../fonts/lato-hairline.ttf") format("truetype"); font-weight: 100; font-style: normal; font-display: swap; }
 
-@font-face { font-family: 'lato'; src: url("../../fonts/lato-light.ttf") format("truetype"); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: 'lato'; src: url("../fonts/lato-light.ttf") format("truetype"); font-weight: 300; font-style: normal; font-display: swap; }
 
-@font-face { font-family: 'lato'; src: url("../../fonts/lato-regular.ttf") format("truetype"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'lato'; src: url("../fonts/lato-regular.ttf") format("truetype"); font-weight: 400; font-style: normal; font-display: swap; }
 
-@font-face { font-family: 'lato'; src: url("../../fonts/lato-bold.ttf") format("truetype"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'lato'; src: url("../fonts/lato-bold.ttf") format("truetype"); font-weight: 700; font-style: normal; font-display: swap; }
 
-@font-face { font-family: 'lato'; src: url("../../fonts/lato-black.ttf") format("truetype"); font-weight: 900; font-style: normal; font-display: swap; }
+@font-face { font-family: 'lato'; src: url("../fonts/lato-black.ttf") format("truetype"); font-weight: 900; font-style: normal; font-display: swap; }
 
 .vd-text-grand { font-synthesis: none; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; -moz-font-feature-settings: 'liga', 'kern'; word-break: break-word; margin: 0; font-size: 48px; line-height: 1.16667; font-weight: 700; }
 
