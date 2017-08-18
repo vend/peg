@@ -1,9 +1,11 @@
 {
     "name": "peg",
     "description": "Payments Examples for Vend",
-    "main": "gulpfile.js",
+    "main": [
+        "assets"
+    ],
     "authors": [
-        "jtrotsky <joecarmstrong@gmail.com>"
+        "jtrotsky <joe@vendhq.com>"
     ],
     "license": "ISC",
     "homepage": "https://github.com/vend/peg",
