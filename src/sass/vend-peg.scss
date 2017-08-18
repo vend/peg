@@ -1,6 +1,6 @@
 $vd-font-src: '../fonts/';
 // Non styles
-@import "vend.ui/src/styles/global/non-styles";
+@import 'vend.ui/src/styles/global/non-styles';
 // Base styles
 @import 'vend.ui/src/styles/global/normalise';
 @import 'vend.ui/src/styles/global/icons';
@@ -10,8 +10,8 @@ $vd-font-src: '../fonts/';
 @import 'vend.ui/src/styles/global/placeholders';
 @import 'vend.ui/src/styles/global/effects/effects';
 // Components
-@import "vend.ui/src/components/vd-button/vd-button";
-@import "vend.ui/src/components/vd-loader/vd-loader";
+@import 'vend.ui/src/components/vd-button/vd-button';
+@import 'vend.ui/src/components/vd-loader/vd-loader';
 body,
 html {
     height: 100%;

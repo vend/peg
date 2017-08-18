@@ -1,8 +1,9 @@
 var gulp = require('gulp'),
-  sass = require('gulp-sass')
+  sass = require('gulp-sass'),
+  rename = require('gulp-rename')
 
 var sassConfig = {
-  inputDirectory: 'assets/sass/**/*.scss',
+  inputDirectory: 'src/sass/**/*.scss',
   outputDirectory: 'assets/css',
   options: {
     outputStyle: 'compact',
@@ -20,6 +21,15 @@ gulp.task('build-css', function () {
     .src(sassConfig.inputDirectory)
     .pipe(sass(sassConfig.options).on('error', sass.logError))
     .pipe(gulp.dest(sassConfig.outputDirectory))
+    .pipe(
+      rename(function (path) {
+        // We want to create an importable Sass file with the same output of
+        // the CSS, but that gets included in the output not resolve to a
+        // native CSS @import.
+        path.extname = '.scss'
+      })
+    )
+    .pipe(gulp.dest(sassConfig.outputDirectory))
 })
 
 gulp.task('fonts', function () {
@@ -29,5 +39,5 @@ gulp.task('fonts', function () {
 })
 
 gulp.task('watch', function () {
-  gulp.watch('assets/sass/**/*.scss', ['build-css'])
+  gulp.watch('src/sass/**/*.scss', ['build-css'])
 })

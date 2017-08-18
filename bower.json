@@ -1,0 +1,22 @@
+{
+    "name": "peg",
+    "description": "Payments Examples for Vend",
+    "main": "gulpfile.js",
+    "authors": [
+        "jtrotsky <joecarmstrong@gmail.com>"
+    ],
+    "license": "ISC",
+    "homepage": "https://github.com/vend/peg",
+    "private": true,
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "devDependencies": {
+        "vend.ui": "https://github.com/vend/vend.ui.git#v24.1.0",
+        "images-ui": "https://github.com/vend/images-ui.git#^1.1.1"
+    }
+}
