@@ -32,6 +32,6 @@ Your integration will show up in a modal, within Vend’s Sell screen. We would 
 - [Vend Payments API Reference](https://docs.vendhq.com/docs/payments-api-reference)
 - [Window.postMessage()](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage)
 
-## License
+## Licenses
 - [MIT License](https://github.com/vend/peg/blob/master/LICENSE)
 - [Google Open Source Font Attribution](https://fonts.google.com/attribution)
