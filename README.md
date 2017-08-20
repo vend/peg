@@ -2,6 +2,7 @@
 
 # PEG
 Pay Example (PEG) is a Heroku hosted web service that demonstrates how an in-store cloud payment integration can be built to Vend's Payments API, enabling to be used on both Web and iOS platforms.
+
 This project is intended as a guide for integrators, and includes Vendy styles and images that are free to be used.
 
 [Vend Payments API Reference](https://docs.vendhq.com/docs/payments-api-reference)
