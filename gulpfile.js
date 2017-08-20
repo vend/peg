@@ -6,7 +6,8 @@ var sassConfig = {
   inputDirectory: 'src/sass/**/*.scss',
   outputDirectory: 'assets/css',
   options: {
-    outputStyle: 'compact',
+    sourceComments: false,
+    outputStyle: 'compressed',
     includePaths: 'bower_components'
   }
 }
