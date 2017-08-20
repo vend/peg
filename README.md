@@ -11,7 +11,7 @@ This project is intended as a guide for integrators, and includes Vendy styles a
 - Vend CSS Styles (`assets/sass/app.scss`)
 - Vend Payment Imagery (`assets/images/*`)
 
-## How to use
+## Deployment and use within Vend 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
 1. Deploy the application to [Heroku](https://www.heroku.com/) so that you have full access to the logs. A current image that can be used, but is not likely to stick around, exists here: https://radiant-everglades-52692.herokuapp.com/
@@ -27,6 +27,9 @@ Your integration will show up in a modal, within Vend’s Sell screen. We would 
 1. You can install PEG into your project as a Bower dependency `bower install https://github.com/vend/peg`.
 2. Once installed, make sure your Sass build system includes `bower_components` as a load (or include) path. See our `gulpfile` for an example of doing this with node-sass. (`includePaths: 'bower_components'`)
 3. Import the PEG styles into your project: `@import 'peg/assets/css/vend-peg.scss'`.
+
+### Style guide
+![](./vend_styles_usage_guide.png)
 
 ## Resources
 - [Vend Payments API Reference](https://docs.vendhq.com/docs/payments-api-reference)
