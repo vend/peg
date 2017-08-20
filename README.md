@@ -5,8 +5,6 @@ Pay Example (PEG) is a Heroku hosted web service that demonstrates how an in-sto
 
 This project is intended as a guide for integrators, and includes Vendy styles and images that are free to be used.
 
-You can also refer to our [Payments API Reference here.](https://docs.vendhq.com/docs/payments-api-reference)
-
 ## Contains
 - Go Webservice (`main.go`)
 - Vend Payments API JavaScript (`assets/js/pay.js`)
