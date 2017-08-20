@@ -35,6 +35,7 @@ We will endeavour to publish new versions of PEG whenever our design language re
 ![](https://i.imgur.com/mCjPDZ1.gif)
 
 ## Resources
+- [Pay Example Live (Heroku)](https://radiant-everglades-52692.herokuapp.com/)
 - [Payments API Getting Started](https://docs.vendhq.com/docs/payments-api-getting-started)
 - [Payments API Reference](https://docs.vendhq.com/docs/payments-api-reference)
 - [Window.postMessage()](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage)
