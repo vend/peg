@@ -35,8 +35,8 @@ We will endeavour to publish new versions of PEG whenever our design language re
 ![](https://i.imgur.com/mCjPDZ1.gif)
 
 ## Resources
-- [Vend Payments API - Getting Started](https://docs.vendhq.com/docs/payments-api-getting-started)
-- [Vend Payments API - Reference](https://docs.vendhq.com/docs/payments-api-reference)
+- [Payments API Getting Started](https://docs.vendhq.com/docs/payments-api-getting-started)
+- [Payments API Reference](https://docs.vendhq.com/docs/payments-api-reference)
 - [Window.postMessage()](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage)
 
 ## Licenses
