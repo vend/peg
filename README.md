@@ -13,8 +13,9 @@ This project is intended as a guide for integrators, and includes Vendy styles a
 - Vend Payment Imagery (`assets/images/*`)
 
 ## Using our Front-end Assets
-Your integration will show up in a modal, within Vend’s Sell screen. We would like that experience to feel cohesive so we’re publishing a toolkit along with PEG that will allow you to use Vend-native styles within your integration. Each version of PEG will ship with the latest styles from within Vend. 
+Your integration will show up in a modal, within Vend’s Sell screen. We would like that experience to feel cohesive so we’re publishing a toolkit along with PEG that will allow you to use Vend-native styles within your integration. 
 
+Each version of PEG will ship with the latest styles from within Vend. 
 We will endeavour to publish new versions of PEG whenever our design language receives a noticeable improvement.
 
 1. You can install PEG into your project as a Bower dependency `bower install https://github.com/vend/peg`.
