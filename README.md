@@ -25,6 +25,8 @@ We will endeavour to publish new versions of PEG whenever our design language re
 ![](./usage_guide.png)
 
 ## Deployment and use within Vend
+PEG must be used within the Vend Pay Screen iFrame, as that's where it has access to the Payments API. Follow these steps to get set up within Vend.
+
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
 1. Deploy the application to [Heroku](https://www.heroku.com/) so that you have full access to the logs. A current image that can be used, but is not likely to stick around, exists here: https://radiant-everglades-52692.herokuapp.com/
