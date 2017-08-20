@@ -20,7 +20,7 @@ Your integration will show up in a modal, within Vend’s Sell screen. We would 
 3. Import the PEG styles into your project: `@import 'peg/assets/css/vend-peg.scss'`.
 
 ### Style guide
-![](./vend_styles_usage_guide.png)
+![](./usage_guide.png)
 
 ## Deployment and use within Vend
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
