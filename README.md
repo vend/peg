@@ -33,5 +33,5 @@ Your integration will show up in a modal, within Vend’s Sell screen. We would 
 - [Window.postMessage()](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage)
 
 ## License
-- [MIT License](https://github.com/vend/peg/blob/master/LICENSE)]
+- [MIT License](https://github.com/vend/peg/blob/master/LICENSE)
 - [Google Open Source Font Attribution](https://fonts.google.com/attribution)
