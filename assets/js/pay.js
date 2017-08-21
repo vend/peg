@@ -273,12 +273,6 @@ window.addEventListener(
   false
 )
 
-// toggleClose enables and disables the modal close button.
-function toggleClose (toggle) {
-  console.log('toggle close button')
-  setupStep(toggle)
-}
-
 // On initial load of modal, configure the page settings such as removing the
 // close button and setting the header.
 $(function () {
