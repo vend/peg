@@ -17,8 +17,6 @@
 <div class="container center">
   <div id="statusMessage" class="center-text"></div>
 
-  <div id="loader" class="vd-loader center-text"></div>
-
   <div id="outcomes">
     <div class=center-text>
       <button class="vd-button vd-button--primary" onclick="sendPayment('accept');">
@@ -27,7 +25,10 @@
       <button class="vd-button vd-button--negative" onclick="sendPayment('decline');">
         Decline
       </button>
-      <button class="vd-button vd-button--secondary" onclick="sendPayment('cancel');">
+      <button class="vd-button vd-button--negative" onclick="sendPayment('timeout');">
+        Timeout
+      </button>
+      <button class="vd-button vd-button--secondary" onclick="cancelPayment();">
         Cancel
       </button>
     </div>

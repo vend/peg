@@ -34,7 +34,7 @@ We will endeavour to publish new versions of PEG whenever our design language re
 2. Once installed, make sure your Sass build system includes `bower_components` as a load (or include) path. See our `gulpfile` for an example of doing this with node-sass. (`includePaths: 'bower_components'`)
 3. Import the PEG styles into your project: `@import 'peg/assets/css/vend-peg.scss'`.
 
-![](./usage_guide.png)
+![](./style_guide.png)
 
 ## Resources
 - [Pay Example Live (Heroku)](https://radiant-everglades-52692.herokuapp.com/)

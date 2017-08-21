@@ -6,16 +6,6 @@
 // Handles payment flow communication to Vend via the Payments API.
 // Documentation: https://docs.vendhq.com/docs/payments-api-reference
 
-// Permanent AJAX loaders.
-$(document)
-  .ajaxStart(function () {
-    $('#outcomes').hide()
-    $('#loader').show()
-  })
-  .ajaxStop(function () {
-    $('#loader').hide()
-  })
-
 // Send postMessage JSON payload to the Payments API.
 function sendObjectToVend (object) {
   // Define parent/opener window.
@@ -27,17 +17,24 @@ function sendObjectToVend (object) {
 // Payments API Steps.
 // https://docs.vendhq.com/docs/payments-api-reference#section-required
 // ACCEPT: Trigger a successful transaction. If the payment type supports
-// printing (and it is enabled) an approved transaction receipt will also print.
-function acceptStep (receiptHTML) {
+// printing (and it is enabled) an approved transaction receipt will also print,
+// containing any of the addition receipt_html_extra that is specified.
+// The transaction_id of the external payment should also be specified, as this
+// can be later retrieved via the REST API.
+function acceptStep (receiptHTML, transactionID) {
   console.log('sending ACCEPT step')
   sendObjectToVend({
     step: 'ACCEPT',
+    transaction_id: transactionID,
     receipt_html_extra: receiptHTML
   })
 }
 
 // DATA: Request additional information from Vend about the sale, payment and
-// line items.
+// line items. This is often used to obtain the register_id that processed the
+// transaction, as it is the best unique identifier to pair a terminal with.
+// This means that if the gateway is storing pairings between a register and a
+// terminal, then there is a way to route the payment correctly.
 function dataStep () {
   console.log('sending DATA step')
   sendObjectToVend({
@@ -46,7 +43,9 @@ function dataStep () {
 }
 
 // DECLINE: Return to pay screen and if enabled a declined transaction receipt
-// will also print.
+// will also print, including the receipt_html_extra specified. It is important
+// to print at this stage to make sure terminal output is included on the
+// receipt.
 function declineStep (receiptHTML) {
   console.log('sending DECLINE step')
   sendObjectToVend({
@@ -58,7 +57,9 @@ function declineStep (receiptHTML) {
 
 // EXIT: Cleanly exit the process. Does not close the window but closes all
 // other dialogs including the payment modal/iFrame and unbinds postMessage
-// handling.
+// handling. It is better to avoid using this step, as it breaks the transaction
+// flow prematurely, and so should only be sent if we are absolutely sure that
+// we know the transaction outcome.
 function exitStep () {
   console.log('sending EXIT step')
   sendObjectToVend({
@@ -66,8 +67,11 @@ function exitStep () {
   })
 }
 
-// PRINT: Manually trigger a receipt, including any extra information, which is
-// usually used for EMV data.
+// PRINT: Manually trigger a receipt, including any extra information specified.
+// This step is not often needed as ACCEPT and DECLINE both include receipt
+// printing. It can however be used to print a signature slip midway through
+// processing if signature is required by the card verifiction method, in this
+// case receipt_html_extra would be used to print a signature line.
 function printStep (receiptHTML) {
   console.log('sending PRINT step')
   sendObjectToVend({
@@ -84,8 +88,7 @@ function setupStep () {
   sendObjectToVend({
     step: 'SETUP',
     setup: {
-      enable_close: false,
-      header: 'Pay Example'
+      enable_close: false
     }
   })
 }
@@ -121,52 +124,56 @@ function getURLParameters () {
   return parameters
 }
 
-// Check response from gateway.
+// Check response status from the gateway, we then manipulate the payment flow
+// in Vend in response to this using the Payment API steps.
 function checkResponse (response) {
-  // Check response status field.
   switch (response.status) {
     case 'ACCEPTED':
-      console.log('response: accepted')
       $('#statusMessage').empty()
-      acceptStep('<div>ACCEPTED</div>')
-      break
-    case 'CANCELLED':
-      console.log('response: cancelled')
-      $('#statusMessage').empty()
-      $.get('../assets/templates/cancelled.html', function (data) {
-        $('#statusMessage').append(data)
-      })
-      setTimeout(declineStep, 4000, '<div>CANCELLED</div>')
+
+      acceptStep('<div>ACCEPTED</div>', response.id)
       break
     case 'DECLINED':
-      console.log('response: declined')
       $('#statusMessage').empty()
       $.get('../assets/templates/declined.html', function (data) {
         $('#statusMessage').append(data)
       })
+
       setTimeout(declineStep, 4000, '<div>DECLINED</div>')
       break
     case 'FAILED':
-      console.log('response: failed')
       $('#statusMessage').empty()
       $.get('../assets/templates/failed.html', function (data) {
         $('#statusMessage').append(data)
       })
+
       setTimeout($('#outcomes').show(), 6000)
+      break
+    case 'TIMEOUT':
+      $('#statusMessage').empty()
+      $.get('../assets/templates/timeout.html', function (data) {
+        $('#statusMessage').append(data)
+      })
+
+      setTimeout(declineStep, 4000, '<div>CANCELLED</div>')
       break
     case 'UNKNOWN':
-      console.log('response: unknown')
       $('#statusMessage').empty()
       $.get('../assets/templates/failed.html', function (data) {
         $('#statusMessage').append(data)
       })
-      setTimeout($('#outcomes').show(), 6000)
+
+      setTimeout($('#outcomes').show(), 4000)
       break
     default:
-      console.log('response: unknown')
+      $('#statusMessage').empty()
+      $.get('../assets/templates/failed.html', function (data) {
+        $('#statusMessage').append(data)
+      })
+
       // Do not know what we got, or something went wrong, so log it.
       console.log(response)
-      $('#outcomes').show()
+      setTimeout($('#outcomes').show(), 4000)
       break
   }
 }
@@ -174,6 +181,9 @@ function checkResponse (response) {
 // sendPayment sends payment context to the gateway to begin processing the
 // payment.
 function sendPayment (outcome) {
+  // Hide outcome buttons.
+  $('#outcomes').hide()
+
   console.log('sending payment')
 
   // Show tap insert or swipe card prompt.
@@ -189,6 +199,10 @@ function sendPayment (outcome) {
   // If we did not at least two query params from Vend something is wrong.
   if (Object.keys(result).length < 2) {
     console.log('did not get at least two query results')
+    $('#statusMessage').empty()
+    $.get('../assets/templates/failed.html', function (data) {
+      $('#statusMessage').append(data)
+    })
     setTimeout(exitStep(), 4000)
   }
 
@@ -227,6 +241,24 @@ function sendPayment (outcome) {
     })
 }
 
+// cancelPayment simulates cancelling a payment.
+function cancelPayment (outcome) {
+  console.log('cancelling payment')
+
+  // Hide outcome buttons.
+  $('#outcomes').hide()
+
+  // Show the cancelling with a loader.
+  $('#statusMessage').empty()
+  $.get('../assets/templates/cancelling.html', function (data) {
+    $('#statusMessage').append(data)
+  })
+
+  // Wait four seconds, then quit window, giving the cashier a chance to try
+  // again.
+  setTimeout(declineStep, 4000, '<div>CANCELLED</div>')
+}
+
 // Listen for postMessage events from Vend, if requesting extra sale data then
 // this is where you can handle the sale JSON.
 window.addEventListener(
@@ -240,6 +272,12 @@ window.addEventListener(
   },
   false
 )
+
+// toggleClose enables and disables the modal close button.
+function toggleClose (toggle) {
+  console.log('toggle close button')
+  setupStep(toggle)
+}
 
 // On initial load of modal, configure the page settings such as removing the
 // close button and setting the header.
