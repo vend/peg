@@ -10,8 +10,18 @@ $vd-font-src: '../fonts/';
 @import 'vend.ui/src/styles/global/placeholders';
 @import 'vend.ui/src/styles/global/effects/effects';
 // Components
+@import 'vend.ui/src/components/vd-link/vd-link';
+@import 'vend.ui/src/components/vd-input/vd-input';
 @import 'vend.ui/src/components/vd-button/vd-button';
 @import 'vend.ui/src/components/vd-loader/vd-loader';
+@import 'vend.ui/src/components/vd-checkbox/vd-checkbox';
+@import 'vend.ui/src/components/vd-field/vd-field';
+@import 'vend.ui/src/components/vd-fieldset/vd-fieldset';
+@import 'vend.ui/src/components/vd-radio/vd-radio';
+@import 'vend.ui/src/components/vd-select/vd-select';
+@import 'vend.ui/src/components/vd-switch/vd-switch';
+@import 'vend.ui/src/components/vd-text/vd-text';
+
 body,
 html {
     height: 100%;

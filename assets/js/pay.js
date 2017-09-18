@@ -273,6 +273,19 @@ window.addEventListener(
   false
 )
 
+function seeForm() {
+
+  // Hide outcome buttons.
+  $('#outcomes').hide()
+
+  // Show the cancelling with a loader.
+  $('#statusMessage').empty()
+  $.get('../assets/templates/forms.html', function (data) {
+    $('#statusMessage').append(data)
+  });
+
+}
+
 // On initial load of modal, configure the page settings such as removing the
 // close button and setting the header.
 $(function () {
