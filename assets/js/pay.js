@@ -7,7 +7,7 @@
 // Documentation: https://docs.vendhq.com/docs/payments-api-reference
 
 // Send postMessage JSON payload to the Payments API.
-function sendObjectToVend (object) {
+function sendObjectToVend(object) {
   // Define parent/opener window.
   var receiver = window.opener !== null ? window.opener : window.parent
   // Send JSON object to parent/opener window.
@@ -21,7 +21,7 @@ function sendObjectToVend (object) {
 // containing any of the addition receipt_html_extra that is specified.
 // The transaction_id of the external payment should also be specified, as this
 // can be later retrieved via the REST API.
-function acceptStep (receiptHTML, transactionID) {
+function acceptStep(receiptHTML, transactionID) {
   console.log('sending ACCEPT step')
   sendObjectToVend({
     step: 'ACCEPT',
@@ -35,7 +35,7 @@ function acceptStep (receiptHTML, transactionID) {
 // transaction, as it is the best unique identifier to pair a terminal with.
 // This means that if the gateway is storing pairings between a register and a
 // terminal, then there is a way to route the payment correctly.
-function dataStep () {
+function dataStep() {
   console.log('sending DATA step')
   sendObjectToVend({
     step: 'DATA'
@@ -46,7 +46,7 @@ function dataStep () {
 // will also print, including the receipt_html_extra specified. It is important
 // to print at this stage to make sure terminal output is included on the
 // receipt.
-function declineStep (receiptHTML) {
+function declineStep(receiptHTML) {
   console.log('sending DECLINE step')
   sendObjectToVend({
     step: 'DECLINE',
@@ -60,7 +60,7 @@ function declineStep (receiptHTML) {
 // handling. It is better to avoid using this step, as it breaks the transaction
 // flow prematurely, and so should only be sent if we are absolutely sure that
 // we know the transaction outcome.
-function exitStep () {
+function exitStep() {
   console.log('sending EXIT step')
   sendObjectToVend({
     step: 'EXIT'
@@ -72,7 +72,7 @@ function exitStep () {
 // printing. It can however be used to print a signature slip midway through
 // processing if signature is required by the card verifiction method, in this
 // case receipt_html_extra would be used to print a signature line.
-function printStep (receiptHTML) {
+function printStep(receiptHTML) {
   console.log('sending PRINT step')
   sendObjectToVend({
     step: 'PRINT',
@@ -83,7 +83,7 @@ function printStep (receiptHTML) {
 // SETUP: Customize the payment dialog. At this stage removing close button to
 // prevent cashiers from prematurely closing the modal is advised, as it leads
 // to interrupted payment flow without a clean exit.
-function setupStep () {
+function setupStep() {
   console.log('sending SETUP step')
   sendObjectToVend({
     step: 'SETUP',
@@ -95,7 +95,7 @@ function setupStep () {
 
 // Get query parameters from the URL. Vend includes amount, origin, and
 // register_id.
-function getURLParameters () {
+function getURLParameters() {
   var pageURL = decodeURIComponent(window.location.search.substring(1)),
     params = pageURL.split('&'),
     paramName,
@@ -126,7 +126,7 @@ function getURLParameters () {
 
 // Check response status from the gateway, we then manipulate the payment flow
 // in Vend in response to this using the Payment API steps.
-function checkResponse (response) {
+function checkResponse(response) {
   switch (response.status) {
     case 'ACCEPTED':
       $('#statusMessage').empty()
@@ -180,7 +180,7 @@ function checkResponse (response) {
 
 // sendPayment sends payment context to the gateway to begin processing the
 // payment.
-function sendPayment (outcome) {
+function sendPayment(outcome) {
   // Hide outcome buttons.
   $('#outcomes').hide()
 
@@ -208,16 +208,16 @@ function sendPayment (outcome) {
 
   // Request /pay endpoint to send amount to terminal and wait for respnse.
   $.ajax({
-    url: 'pay',
-    type: 'GET',
-    dataType: 'json',
-    data: {
-      amount: result.amount,
-      outcome: outcome,
-      origin: result.origin,
-      register_id: result.register_id
-    }
-  })
+      url: 'pay',
+      type: 'GET',
+      dataType: 'json',
+      data: {
+        amount: result.amount,
+        outcome: outcome,
+        origin: result.origin,
+        register_id: result.register_id
+      }
+    })
     .done(function (response) {
       console.log(response)
 
@@ -242,7 +242,7 @@ function sendPayment (outcome) {
 }
 
 // cancelPayment simulates cancelling a payment.
-function cancelPayment (outcome) {
+function cancelPayment(outcome) {
   console.log('cancelling payment')
 
   // Hide outcome buttons.
@@ -272,6 +272,31 @@ window.addEventListener(
   },
   false
 )
+
+function showClose() {
+  sendObjectToVend({
+    step: 'SETUP',
+    setup: {
+      enable_close: true
+    }
+  })
+}
+
+function seeForm() {
+  // Since we cannot navigate away from this screen and it does not close
+  // automatically, show the close modal button.
+  showClose();
+
+  // Hide outcome buttons.
+  $('#outcomes').hide()
+
+  // Show the cancelling with a loader.
+  $('#statusMessage').empty()
+  $.get('../assets/templates/forms.html', function (data) {
+    $('#statusMessage').append(data)
+  });
+
+}
 
 // On initial load of modal, configure the page settings such as removing the
 // close button and setting the header.

@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
   sass = require('gulp-sass'),
-  rename = require('gulp-rename')
+  rename = require('gulp-rename'),
+  autoprefixer = require('gulp-autoprefixer')
 
 var sassConfig = {
   inputDirectory: 'src/sass/**/*.scss',
@@ -21,6 +22,7 @@ gulp.task('build-css', function () {
   return gulp
     .src(sassConfig.inputDirectory)
     .pipe(sass(sassConfig.options).on('error', sass.logError))
+    .pipe(autoprefixer({browsers: ['last 2 versions', 'Safari >= 8', 'iOS >= 8']}))
     .pipe(gulp.dest(sassConfig.outputDirectory))
     .pipe(
       rename(function (path) {
