@@ -2,7 +2,15 @@
     "name": "peg",
     "description": "Payments Examples for Vend",
     "main": [
-        "assets"
+        "./assets/css/vend-peg.css",
+        "./assets/fonts/lato-black.ttf",
+        "./assets/fonts/lato-bold.ttf",
+        "./assets/fonts/lato-hairline.ttf",
+        "./assets/fonts/lato-light.ttf",
+        "./assets/fonts/lato-regular.ttf",
+        "./assets/fonts/vend-icons.woff",
+        "./assets/fonts/vend-icons.woff2",
+        "./assets/images/insert-card.svg"
     ],
     "authors": [
         "jtrotsky <joe@vendhq.com>"
