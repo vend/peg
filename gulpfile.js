@@ -18,6 +18,8 @@ var fontConfig = {
   outputDirectory: './assets/fonts'
 }
 
+gulp.task('default', ['build-css', 'watch']);
+
 gulp.task('build-css', function () {
   return gulp
     .src(sassConfig.inputDirectory)
