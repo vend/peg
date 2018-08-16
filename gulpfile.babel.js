@@ -1,9 +1,9 @@
-var gulp = require('gulp'),
-  sass = require('gulp-sass'),
-  rename = require('gulp-rename'),
-  autoprefixer = require('gulp-autoprefixer')
+import gulp from 'gulp'
+import sass from 'gulp-sass'
+import rename from 'gulp-rename'
+import autoprefixer from 'gulp-autoprefixer'
 
-var sassConfig = {
+const sassConfig = {
   inputDirectory: 'src/sass/**/*.scss',
   outputDirectory: 'assets/css',
   options: {
@@ -13,14 +13,12 @@ var sassConfig = {
   }
 }
 
-var fontConfig = {
+const fontConfig = {
   inputDirectory: './bower_components/vend.ui/dist/fonts/*',
   outputDirectory: './assets/fonts'
 }
 
-gulp.task('default', ['build-css', 'watch']);
-
-gulp.task('build-css', function () {
+var buildCSS = function () {
   return gulp
     .src(sassConfig.inputDirectory)
     .pipe(sass(sassConfig.options).on('error', sass.logError))
@@ -35,14 +33,33 @@ gulp.task('build-css', function () {
       })
     )
     .pipe(gulp.dest(sassConfig.outputDirectory))
-})
+}
 
-gulp.task('fonts', function () {
+var watchSource = function () {
+  gulp.watch('src/sass/**/*.scss', buildCSS)
+}
+
+var moveFonts = function () {
   return gulp
     .src(fontConfig.inputDirectory)
     .pipe(gulp.dest(fontConfig.outputDirectory))
-})
+}
 
-gulp.task('watch', function () {
-  gulp.watch('src/sass/**/*.scss', ['build-css'])
-})
+const build = gulp.series(buildCSS)
+build.description = 'build and move css files to output directory'
+
+const watch = gulp.series(watchSource)
+watch.description = 'watch for changes to all source'
+
+const fonts = gulp.series(moveFonts)
+fonts.description = 'move fonts to output directory'
+
+const defaultTasks = gulp.parallel(build, watch)
+
+export {
+  build,
+  watch,
+  fonts,
+}
+
+export default defaultTasks
