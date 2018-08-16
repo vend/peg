@@ -10,9 +10,6 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0"
   },
-  "optionalDependencies": {
-    "vend.ui": "git@github.com:vend/vend.ui.git#v32.14.0"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
