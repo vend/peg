@@ -1,16 +1,17 @@
 {
   "name": "peg",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Payments Examples for Vend",
   "main": "gulpfile.js",
-  "devDependencies": {
+  "dependencies": {
     "bower": "^1.8.0",
     "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0"
   },
   "optionalDependencies": {
-    "vend.ui": "git+https://git@github.com:vend/vend.ui.git#v24.1.0"
+    "vend.ui": "git@github.com:vend/vend.ui.git#v32.14.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
