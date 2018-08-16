@@ -26,7 +26,7 @@
         "tests"
     ],
     "devDependencies": {
-        "vend.ui": "git@github.com:vend/vend.ui.git#v24.1.0",
+        "vend.ui": "git@github.com:vend/vend.ui.git#v32.14.0",
         "images-ui": "git@github.com:vend/images-ui.git#^1.1.1"
     }
 }
