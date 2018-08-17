@@ -3,27 +3,28 @@ import sass from 'gulp-sass'
 import rename from 'gulp-rename'
 import autoprefixer from 'gulp-autoprefixer'
 
-const sassConfig = {
-  inputDirectory: 'src/sass/**/*.scss',
-  outputDirectory: 'assets/css',
-  options: {
-    sourceComments: false,
-    outputStyle: 'compressed',
-    includePaths: 'bower_components'
+const paths = {
+  sassConfig: {
+    inputDirectory: 'src/sass/**/*.scss',
+    outputDirectory: 'assets/css',
+    options: {
+      sourceComments: false,
+      outputStyle: 'compressed',
+      includePaths: 'bower_components'
+    }
+  },
+  fontConfig: {
+      inputDirectory: './bower_components/vend.ui/dist/fonts/*',
+      outputDirectory: './assets/fonts'
   }
-}
-
-const fontConfig = {
-  inputDirectory: './bower_components/vend.ui/dist/fonts/*',
-  outputDirectory: './assets/fonts'
 }
 
 var buildCSS = function () {
   return gulp
-    .src(sassConfig.inputDirectory)
-    .pipe(sass(sassConfig.options).on('error', sass.logError))
+    .src(paths.sassConfig.inputDirectory)
+    .pipe(sass(paths.sassConfig.options).on('error', sass.logError))
     .pipe(autoprefixer({browsers: ['last 2 versions', 'Safari >= 8', 'iOS >= 8']}))
-    .pipe(gulp.dest(sassConfig.outputDirectory))
+    .pipe(gulp.dest(paths.sassConfig.outputDirectory))
     .pipe(
       rename(function (path) {
         // We want to create an importable Sass file with the same output of
@@ -32,17 +33,18 @@ var buildCSS = function () {
         path.extname = '.scss'
       })
     )
-    .pipe(gulp.dest(sassConfig.outputDirectory))
+    .pipe(gulp.dest(paths.sassConfig.outputDirectory))
 }
 
 var watchSource = function () {
+  console.log('Watching for changes to source files...')
   gulp.watch('src/sass/**/*.scss', buildCSS)
 }
 
 var moveFonts = function () {
   return gulp
-    .src(fontConfig.inputDirectory)
-    .pipe(gulp.dest(fontConfig.outputDirectory))
+    .src(paths.fontConfig.inputDirectory)
+    .pipe(gulp.dest(paths.fontConfig.outputDirectory))
 }
 
 const build = gulp.series(buildCSS)
@@ -54,7 +56,7 @@ watch.description = 'watch for changes to all source'
 const fonts = gulp.series(moveFonts)
 fonts.description = 'move fonts to output directory'
 
-const defaultTasks = gulp.parallel(build, watch)
+const defaultTasks = gulp.series(build, watch)
 
 export {
   build,
