@@ -1,4 +1,5 @@
 $vd-font-src: '../fonts/';
+@import 'font-awesome/scss/font-awesome';
 // Non styles
 @import 'vend.ui/src/styles/global/non-styles';
 // Base styles
@@ -12,7 +13,7 @@ $vd-font-src: '../fonts/';
 // Components
 @import 'vend.ui/src/components/vd-link/vd-link';
 @import 'vend.ui/src/components/vd-input/vd-input';
-@import 'vend.ui/src/components/vd-button/vd-button';
+@import 'vend.ui/src/components/vd-btn/vd-btn';
 @import 'vend.ui/src/components/vd-loader/vd-loader';
 @import 'vend.ui/src/components/vd-checkbox/vd-checkbox';
 @import 'vend.ui/src/components/vd-field/vd-field';
@@ -24,6 +25,7 @@ $vd-font-src: '../fonts/';
 
 body,
 html {
+    background-color: #ffffff;
     height: 100%;
 }
 

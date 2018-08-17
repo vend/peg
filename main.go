@@ -4,13 +4,12 @@ package main
 import (
 	"encoding/json"
 	"log"
+	"math/rand"
 	"net/http"
 	"os"
 	"strconv"
 	"strings"
 	"time"
-
-	shortid "github.com/ventu-io/go-shortid"
 )
 
 // These are the possible sale statuses.
@@ -111,7 +110,7 @@ func PaymentHandler(w http.ResponseWriter, r *http.Request) {
 	// We build a JSON response object that contains important information for
 	// which step we should send back to Vend to guide the payment flow.
 	type Response struct {
-		ID         string  `json:"id"`
+		ID         int     `json:"id"`
 		Amount     float64 `json:"amount"`
 		RegisterID string  `json:"register_id"`
 		Status     string  `json:"status"`
@@ -133,9 +132,11 @@ func PaymentHandler(w http.ResponseWriter, r *http.Request) {
 		status = statusUnknown
 	}
 
+	// NOTE: This is a future state, Vend does not currently accept a this value
+	// through the ACCEPT step of the Payments API.
 	// Specify an external transaction ID. This value can be sent back to Vend with
 	// the "ACCEPT" step as the JSON key "transaction_id".
-	shortID, _ := shortid.Generate()
+	shortID := rand.Intn(1000000000)
 
 	// Build our response content, including the amount approved and the Vend
 	// register that originally sent the payment.
