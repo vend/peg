@@ -19,8 +19,9 @@ function sendObjectToVend(object) {
 // ACCEPT: Trigger a successful transaction. If the payment type supports
 // printing (and it is enabled) an approved transaction receipt will also print,
 // containing any of the addition receipt_html_extra that is specified.
-// The transaction_id of the external payment should also be specified, as this
-// can be later retrieved via the REST API.
+//
+// DESIRED STATE: The transaction_id of the external payment provider can be
+// specified, and later retrieved via the REST API.
 function acceptStep(receiptHTML, transactionID) {
   console.log('sending ACCEPT step')
   sendObjectToVend({
