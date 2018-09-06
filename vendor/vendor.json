@@ -1,0 +1,7 @@
+{
+    "comment": "For other heroku options see: https://devcenter.heroku.com/articles/go-support",
+    "rootPath": "github.com/vend/peg",
+    "heroku": {
+        "sync": false
+    }
+}

@@ -3,10 +3,5 @@
     "description": "An example Go/JS app for how to use the Vend Payment API",
     "repository": "https://github.com/vend/peg",
     "logo": "https://github.com/vend/peg/blob/master/assets/images/favicon.ico",
-    "keywords": ["go", "vend", "payments"],
-    "buildpacks": [
-      {
-        "url": "https://github.com/heroku/go"
-      }
-    ]
+    "keywords": ["go", "vend", "payments"]
 }
