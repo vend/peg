@@ -39,8 +39,6 @@ When adding a new payment type, users will be presented with a list of the avail
 
 ![](./01-setup-add.png)
 
-![](./02-setup-no merchant acc.png)
-
 If the user has a merchant account, they will be prompted to create the payment type and start pairing their payment hardware with Vend. The most common way of pairing hardware is to pair a terminal’s serial number with a chosen Register in Vend. If the serial number is not usable, another unique identifier such as the terminal IP address can be used. 
 
 The user will go through this pairing flow as many times as there are terminals that need to be paired. A pairing should always be a one-to-one connection, i.e.:
